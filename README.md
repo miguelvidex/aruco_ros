@@ -37,29 +37,12 @@ Software package and ROS wrappers of the [Aruco][1] Augmented Reality marker det
 
 ### Test it with REEM
 
- * Open a REEM in simulation with a marker floating in front of the robot. This will start the stereo cameras of the robot too. Since this is only a vision test, there is nothing else in this world apart from the robot and a marker floating in front of it. An extra light source had to be added to compensate for the default darkness.
+ * launch the aruco detector for pioneer p3dx robot simulator
 
     ```
-    roslaunch reem_gazebo reem_gazebo.launch world:=floating_marker
-    ```
- * Launch the `image_proc` node to get undistorted images from the cameras of the robot.
- 
-    ```
-    ROS_NAMESPACE=/stereo/right rosrun image_proc image_proc image_raw:=image
-    ```
- * Start the `single` node which will start tracking the specified marker and will publish its pose in the camera frame
- 
-    ```
-    roslaunch aruco_ros single.launch markerId:=26 markerSize:=0.08 eye:="right"
+    roslaunch aruco_ros mysingle.launch
     ```
 
-    the frame in which the pose is refered to can be chosen with the 'ref_frame' argument. The next example forces the marker pose to
-    be published with respect to the robot base_link frame:
-
-    ```
-    roslaunch aruco_ros single.launch markerId:=26 markerSize:=0.08 eye:="right" ref_frame:=/base_link
-    ```
-    
  * Visualize the result
  
     ```    
