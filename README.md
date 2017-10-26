@@ -35,7 +35,7 @@ Software package and ROS wrappers of the [Aruco][1] Augmented Reality marker det
         Header header
         aruco_ros/Marker[] markers
 
-### Test it with REEM
+### Test it with PIONEER p3dx
 
  * launch the aruco detector for pioneer p3dx robot simulator
 
